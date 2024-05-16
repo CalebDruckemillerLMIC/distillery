@@ -1,10 +1,14 @@
-import {Router, Route} from "electron-router-dom"
-import {JobsScreen} from "./screens"
+import { HashRouter, Route, Routes } from "react-router-dom"
+import {JobsScreen, OtherScreen} from "./screens"
 
-export function AppRoutes() {
+export function AppRoutes(props: any) {
     return (
-        <Router 
-             main={ <Route path="/" element={<JobsScreen />} />}
-        />
+        <HashRouter>
+            {props.children}
+            <Routes>
+                <Route path="/" Component={OtherScreen} />
+                <Route path="/jobs" Component={JobsScreen} />
+            </Routes>
+        </HashRouter>
     )
 }

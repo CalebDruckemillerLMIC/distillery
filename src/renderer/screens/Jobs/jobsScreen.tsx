@@ -6,8 +6,7 @@ function jobsScreen({}: Props) {
     console.log("Mounted")
   return (
     <>
-      <div>jobsStage</div>
-      <h1>test</h1>
+      <div style={{"bottom": "0"}}>jobsStage</div>
     </>
   )
 }

@@ -1,7 +1,7 @@
 import {Navbar, NavbarBrand, Nav,NavItem, NavLink} from "reactstrap"
 import React, {ReactElement, useState} from 'react'
 import logo from '../../logo.svg';
-
+import { useNavigate } from "react-router";
 
 type Props = {}
 
@@ -11,7 +11,7 @@ type Props = {}
 const TABS = [
     {
         "title": "Jobs",
-        "href": "/"
+        "href": "/jobs"
     },
     {
         "title": "Reports",
@@ -27,16 +27,18 @@ const TABS = [
 
 export default function Header({}: Props) {
     const [activeTab, setActiveTab] = useState(0);
+    const navigate = useNavigate()
 
-    function toggleActiveTab(event: any, tab: number): void {
-        console.log(tab);
-        
-        setActiveTab(tab)
+
+    function tabSelect(event:any, url: string, idx: number){
+        navigate(url)
+        setActiveTab(idx)
     }
+
     const createNavLinks = (): ReactElement[] => (
         TABS.map((tabItem:any, idx:number) => (
             <NavItem key={idx}>
-                <NavLink onClick={(target) => toggleActiveTab(target, idx)} className={idx === activeTab ? "active" : ""}>{tabItem['title']}</NavLink>
+                <NavLink onClick={(target) => tabSelect(target, tabItem['href'], idx)} className={idx === activeTab ? "active" : ""}>{tabItem['title']}</NavLink>
             </NavItem>
         ))
     );
@@ -45,7 +47,7 @@ export default function Header({}: Props) {
         <Navbar
                 color="dark"
                 dark 
-                fixed="top">
+                fixed="bottom">
             <NavbarBrand href="/">
                 <img alt="logo" src={logo} style={{height: 40, width:40}}/>
             </NavbarBrand>
