@@ -18,7 +18,7 @@ const TABS = [
     },
     {
         "title": "Admin",
-        "href": "/"
+        "href": "/admin"
     }
 ]
 

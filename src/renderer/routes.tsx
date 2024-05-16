@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom"
-import {JobsScreen, OtherScreen} from "./screens"
+import {JobsScreen, OtherScreen, AdminScreen} from "./screens"
 
 export function AppRoutes(props: any) {
     return (
@@ -8,6 +8,7 @@ export function AppRoutes(props: any) {
             <Routes>
                 <Route path="/" Component={OtherScreen} />
                 <Route path="/jobs" Component={JobsScreen} />
+                <Route path="/admin" Component={AdminScreen} />
             </Routes>
         </HashRouter>
     )
