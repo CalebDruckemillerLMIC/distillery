@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Layout } from './components';
 
-function jobsScreen() {
+function JobsScreen() {
+
+  const [jobsList, setJobsList] = useState([{}]);
+
+  function loadData(){
+    console.log("Loading data...");
+  }
+
   return (
-      <div>jobsStage</div> 
+      <>
+      <Layout />
+      </>
   )
 }
 
-export default jobsScreen
+export default JobsScreen

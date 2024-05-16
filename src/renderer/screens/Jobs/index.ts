@@ -1,4 +1,4 @@
-import jobsScreen from "./jobsScreen";
+import JobsScreen from "./jobsScreen";
 import otherScreen from "./otherScreen";
 
-export {jobsScreen as JobsScreen, otherScreen as OtherScreen}
+export {JobsScreen, otherScreen as OtherScreen}
