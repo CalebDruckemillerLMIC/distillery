@@ -1,13 +1,9 @@
 import React from 'react'
 
-type Props = {}
 
-function otherScreen({}: Props) {
-    console.log("Mounted")
+function otherScreen() {
   return (
-    <>
       <div>other Screen</div>
-    </>
   )
 }
 

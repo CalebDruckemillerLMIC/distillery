@@ -1,13 +1,8 @@
 import React from 'react'
 
-type Props = {}
-
-function jobsScreen({}: Props) {
-    console.log("Mounted")
+function jobsScreen() {
   return (
-    <>
-      <div style={{"bottom": "0"}}>jobsStage</div>
-    </>
+      <div>jobsStage</div> 
   )
 }
 

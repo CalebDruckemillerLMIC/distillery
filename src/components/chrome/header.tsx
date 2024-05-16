@@ -3,7 +3,6 @@ import React, {ReactElement, useState} from 'react'
 import logo from '../../logo.svg';
 import { useNavigate } from "react-router";
 
-type Props = {}
 
 
 
@@ -25,10 +24,9 @@ const TABS = [
 
 
 
-export default function Header({}: Props) {
+export default function Header() {
     const [activeTab, setActiveTab] = useState(0);
     const navigate = useNavigate()
-
 
     function tabSelect(event:any, url: string, idx: number){
         navigate(url)
@@ -38,7 +36,11 @@ export default function Header({}: Props) {
     const createNavLinks = (): ReactElement[] => (
         TABS.map((tabItem:any, idx:number) => (
             <NavItem key={idx}>
-                <NavLink onClick={(target) => tabSelect(target, tabItem['href'], idx)} className={idx === activeTab ? "active" : ""}>{tabItem['title']}</NavLink>
+                <NavLink 
+                        onClick={(target) => tabSelect(target, tabItem['href'], idx)} 
+                        className={idx === activeTab ? "active" : ""}>
+                    {tabItem['title']}
+                </NavLink>
             </NavItem>
         ))
     );
@@ -47,7 +49,7 @@ export default function Header({}: Props) {
         <Navbar
                 color="dark"
                 dark 
-                fixed="bottom">
+                fixed="left">
             <NavbarBrand href="/">
                 <img alt="logo" src={logo} style={{height: 40, width:40}}/>
             </NavbarBrand>
